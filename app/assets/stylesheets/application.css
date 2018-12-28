@@ -62,7 +62,18 @@
 .results {
   margin-top: 20px;
   background: #f4f4f4;
-  min-height: 50px;
   width: 484px;
   border-radius: 5px;
+}
+
+.results-text {
+  padding: 10px;
+}
+
+.danger {
+  color: red;
+}
+
+.success {
+  color: green;
 }

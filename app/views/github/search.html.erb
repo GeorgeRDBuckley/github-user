@@ -14,7 +14,11 @@
     </div>
     <% unless @language.nil? %>
       <div class="results">
-        
+        <% if @error %>
+          <p class="danger results-text"><%= @language %></p>
+        <% else %>
+          <p class="results-text"><%= params[:user] %>'s favourite language is: <span class="success"><%= @language %></span></p>
+        <% end %>
       </div>
     <% end %>
   </center>

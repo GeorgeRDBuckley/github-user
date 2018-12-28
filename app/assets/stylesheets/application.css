@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+ .btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.search-container {
+  padding-top: 15px;
+}
+
+.search-field-container {
+  background: #fff;
+  display: flex;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+  z-index: 3;
+  height: 44px;
+  margin: 0 auto;
+  width: 484px;
+}
+
+.search-field {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 5px 0 0 10px;
+  color: rgba(0,0,0,.87);
+  word-wrap: break-word;
+  outline: none;
+  width: 95%;
+  flex: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: 16px arial,sans-serif;
+  line-height: 34px;
+  height: 34px !important;
+}

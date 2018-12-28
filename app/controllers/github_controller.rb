@@ -8,10 +8,12 @@ class GithubController < ApplicationController
   private
 
   def favourite_language(user)
-    repositories(user).inject(Hash.new(0)) do |languages, repo|
-      languages[repo.language] += 1
+    language = {}
+    repositories(user).each do |repo|
+      language[repo.language] = 0 if language[repo.language].nil?
+      language[repo.language] += 1
     end
-    languages.max_by{|k,v| v}
+    language.max_by{|k,v| v}.first
   end
 
   def repositories(user)

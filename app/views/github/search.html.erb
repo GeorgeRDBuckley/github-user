@@ -7,14 +7,16 @@
       <div class="form-inline">
         <%= form_tag do %>
           <div class="search-field-container">
-            <%= text_field_tag :user, nil, class: "search-field" %>
+            <%= text_field_tag :user, params[:user], class: "search-field" %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="results">
-      
-    </div>
+    <% unless @language.nil? %>
+      <div class="results">
+        
+      </div>
+    <% end %>
   </center>
 </div>
 

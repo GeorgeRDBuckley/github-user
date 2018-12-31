@@ -11,27 +11,24 @@ class GithubController < ApplicationController
     begin
       language = {}
       repositories(user).each do |repo|
-        language[repo.language] = 0 if language[repo.language].nil?
-        language[repo.language] += 1
+        language[repo["language"]] = 0 if language[repo["language"]].nil?
+        language[repo["language"]] += 1
       end
       @error = false
       language.max_by{|k,v| v}.first
-    rescue Octokit::NotFound
+    rescue Github::NoRepos
+      @error = true
+      "User has no repositories"
+    rescue Github::NotFound
       @error = true
       "No user found"
-    rescue Octokit::TooManyRequests
+    rescue Github::Error => e
       @error = true
-      "Sorry, API limit has been reached"
-    rescue Octokit::ClientError => e
-      @error = true
-      "Sorry, unexpected client error: #{e.message}"
-    rescue Octokit::ServerError => e
-      @error = true
-      "Sorry, unexpected server error: #{e.message}"
+      "Sorry: #{e.message}"
     end
   end
 
   def repositories(user)
-    Octokit.repositories(user)
+    Github.repos(user)
   end
 end

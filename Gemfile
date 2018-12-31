@@ -13,6 +13,7 @@ gem "jbuilder", "~> 2.5"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.2"
+gem 'rails-controller-testing'
 # gem "redis", "~> 4.0"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
@@ -34,4 +35,5 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+  gem 'rspec-rails', '~> 3.8'
 end

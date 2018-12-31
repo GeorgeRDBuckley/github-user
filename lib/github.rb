@@ -10,18 +10,19 @@ module Github
     if self.process_response(response).empty?
       raise Github::NoRepos
     else
-      return repos
+      repos
     end
   end
 
   def self.process_response(response)
+    parsed_results = JSON.parse response.body
     case response.status
     when 404
       raise Github::NotFound
     when 400..599 
       raise Github::Error.new(parsed_results["message"])
     else
-      parsed_results = JSON.parse response.body
+      parsed_results
     end
   end
 

@@ -7,7 +7,7 @@
       <div class="form-inline">
         <%= form_tag do %>
           <div class="search-field-container">
-            <%= text_field_tag :user, params[:user], class: "search-field" %>
+            <%= text_field_tag :user, params[:user], class: "search-field", placeholder: "GitHub username" %>
           </div>
         <% end %>
       </div>
